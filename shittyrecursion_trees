@@ -1,0 +1,31 @@
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        res = 0
+        def dfs(node):
+            if not node:
+                res.append(cnt)
+                return None
+
+            cnt = cnt+1
+            dfs(node.left)
+            dfs(node.right)
+
+            return dfs(node.left) and dfs(node.right)
+
+        dfs(root)
+        return res
+        class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool: 
+        if not root:
+            return True
+        
+        def mirror(p,q):
+            if not p and not q:
+                return False
+
+            if p.val == q.val:
+                return True
+
+            return self.mirror(root.left,root.right) and self.mirror(root.right,root.left)
+
+        return self.isSymmetric(root) 
