@@ -1,0 +1,31 @@
+import sys
+import random
+
+def sol(n,k,days):
+    
+    total_Cost = 1+k
+    for i in range(1,len(days)):
+        disc_Cost = 1 + k
+        window_cost = days[i] - days[i-1]
+
+        total_Cost+=min(window_cost,disc_Cost)
+            
+    
+    print(total_Cost)
+        
+
+    
+if __name__ == '__main__':
+    sys.stdin = open('input.txt', 'r')
+    n, k = map(int, sys.stdin.readline().split())
+    days = list(map(int, sys.stdin.readline().split()))
+
+    print(f"N: {n}, K: {k}")
+    print(f"Days: {days}")
+    
+    sol(n,k,days)
+        
+
+       
+
+
