@@ -1,0 +1,84 @@
+import sys
+
+def sol(x,arr):
+    memo = [None]*(x+1)
+
+    def dp(res):
+        if res < 0:
+            return -1
+        if res == 0:
+            return res
+        if memo[res]!=None:
+            return memo[res]
+        
+        min_coins = float("Inf")
+        for coin in arr:
+            leaves = dp(res-coin)
+            if leaves!=-1:
+                min_coins = min(min_coins,1+leaves)
+        
+        
+        memo[res] = min_coins
+        return memo[res]
+
+
+
+    return dp(x) 
+
+
+
+def main():
+    sys.stdin = open("input.txt" , 'r')
+
+    n, target = map(int, sys.stdin.readline().split())
+    coins = list(map(int, sys.stdin.readline().split()))
+
+
+    res = sol(target,coins)
+    print(res)
+    
+if __name__ == "__main__":
+    main()
+   
+import sys
+
+def sol(x,arr):
+    memo = [None]*(x+1)
+
+    def dp(res):
+        if res < 0:
+            return -1
+        if res == 0:
+            return res
+        if memo[res]!=None:
+            return memo[res]
+        
+        min_coins = float("Inf")
+        for coin in arr:
+            leaves = dp(res-coin)
+            if leaves!=-1:
+                min_coins = min(min_coins,1+leaves)
+        
+        
+        memo[res] = min_coins
+        return memo[res]
+
+
+
+    return dp(x) 
+
+
+
+def main():
+    sys.stdin = open("input.txt" , 'r')
+
+    n, target = map(int, sys.stdin.readline().split())
+    coins = list(map(int, sys.stdin.readline().split()))
+
+
+    res = sol(target,coins)
+    print(res)
+    
+if __name__ == "__main__":
+    main()
+   
